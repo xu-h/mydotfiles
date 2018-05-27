@@ -8,9 +8,11 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 Plug 'scrooloose/nerdtree'
 
+" 美化
 Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 
+" git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 
@@ -19,13 +21,16 @@ Plug 'tpope/vim-fugitive'
 
 " 补全
 Plug 'jiangmiao/auto-pairs'     " 括号补全
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 
-" markdown support
-Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'iamcco/markdown-preview.vim'
+" Markdown Support
+Plug 'iamcco/mathjax-support-for-mkdp', { 'for': ['markdown'] }
+Plug 'iamcco/markdown-preview.vim', { 'for': ['markdown'] }
+
+" Latex
+Plug 'lervag/vimtex'
 
 " highlight
 " Plug'ekalinin/Dockerfile.vim'
@@ -42,7 +47,7 @@ set splitbelow
 " Enable GUI mouse behavior
 set mouse=a
 
-" tab 
+" tab
 set encoding=utf-8
 set tabstop=4
 set shiftwidth=4
@@ -59,7 +64,7 @@ colorscheme nord
 set noruler
 set nowrap
 
-" sidebar 
+" sidebar
 set number
 let g:signify_vcs_list = [ 'git' ]
 
@@ -68,19 +73,12 @@ set noshowcmd
 set noshowmode
 let g:airline_powerline_fonts = 1
 
-" file tree
-"augroup nerd_tree
-    " autocmd!
-    " open NERDTree if no file were specified when nvim startup
-    " autocmd StdinReadPre * let s:std_in=1
-    " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-    " close vim if NERDTree is the last window
-    " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" augroup END
-
 " 自动补全
 let g:deoplete#enable_at_startup = 0
-" let g:deoplete#enable_logging("DEBUG")
+
+" latex
+let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_view_method = 'mupdf'
 
 " 快捷键
 let mapleader = ","
@@ -88,3 +86,4 @@ nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 map <F3> :NERDTreeToggle<CR>
 inoremap <C-v> <ESC>"+Pa
+autocmd FileType tex nnoremap <F8> :VimtexCompile<CR>
