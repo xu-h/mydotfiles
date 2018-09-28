@@ -1,40 +1,47 @@
-let g:python3_host_prog ='D:/Neovim/env3/Scripts/python.exe'
-let g:python_host_prog ='D:/Neovim/env2/Scripts/python.exe'
+if (has('win32') || has('win64') || has('win32unix'))
+    let g:python3_host_prog ='D:/Neovim/env3/Scripts/python.exe'
+    let g:python_host_prog ='D:/Neovim/env2/Scripts/python.exe'
+    
+    call plug#begin('D:/Neovim/share/nvim/plugged')
+else
+    let g:python_host_prog = '/home/code-xu/dev-env/miniconda3/envs/py2neovim/bin/python'
+    let g:python3_host_prog = '/home/code-xu/dev-env/miniconda3/envs/py3neovim/bin/python'
 
-call plug#begin('D:/Neovim/share/nvim/plugged')
+    call plug#begin('~/.local/share/nvim/plugged')
+endif
 
-Plug 'Yggdroot/indentLine'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+" Plug 'Yggdroot/indentLine'
+" Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 
 " 美化
 Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 
 " git
-Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-fugitive'
+" Plug 'mhinz/vim-signify'
+" Plug 'tpope/vim-fugitive'
 
 " Plug 'Vimjas/vim-python-pep8-indent' python PEP8 缩进
 " Plug 'scrooloose/nerdcommenter' " 增强注释
 
 " 补全
-Plug 'jiangmiao/auto-pairs'     " 括号补全
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'jiangmiao/auto-pairs'     " 括号补全
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'zchee/deoplete-jedi'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 
 " Markdown Support
-Plug 'iamcco/mathjax-support-for-mkdp', { 'for': ['markdown'] }
-Plug 'iamcco/markdown-preview.vim', { 'for': ['markdown'] }
+" Plug 'iamcco/mathjax-support-for-mkdp', { 'for': ['markdown'] }
+" Plug 'iamcco/markdown-preview.vim', { 'for': ['markdown'] }
 
 " Latex
-Plug 'lervag/vimtex'
+" Plug 'lervag/vimtex'
 
 " highlight
 " Plug'ekalinin/Dockerfile.vim'
-Plug 'cespare/vim-toml'
+" Plug 'cespare/vim-toml'
 
 call plug#end()
 
@@ -85,5 +92,4 @@ let mapleader = ","
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 map <F3> :NERDTreeToggle<CR>
-inoremap <C-v> <ESC>"+Pa
 autocmd FileType tex nnoremap <F8> :VimtexCompile<CR>
