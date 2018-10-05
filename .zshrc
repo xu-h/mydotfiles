@@ -1,5 +1,6 @@
-source ~/antigen.zsh
-antigen init .antigenrc
+ANTIGEN_PATH=~/.dotfiles
+source $ANTIGEN_PATH/antigen/antigen.zsh
+antigen init ~/.antigenrc
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
