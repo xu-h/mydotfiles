@@ -54,3 +54,6 @@ conda deactivate
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 alias lg='lazygit'
+
+# set LUA_PATH 
+eval $(luarocks path --bin)
