@@ -12,7 +12,6 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Select theme.
 antigen theme denysdovhan/spaceship-prompt
-# antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
 
 # Tell antigen that you're done.
 antigen apply
